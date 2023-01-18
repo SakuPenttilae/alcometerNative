@@ -1,4 +1,4 @@
-import { StyleSheet, TouchableWithoutFeedback } from "react-native";
+import { StyleSheet } from "react-native";
 import Constants from "expo-constants";
 
 
@@ -40,13 +40,12 @@ const Default = StyleSheet.create({
         alignItems: "center"
     },
     results: {
-        flex:1
+        flex:2
     },
     result: {
         textAlign: "center",
         marginTop: 30,
         fontSize: 20
-
     },
     calc: {
         textAlign:"center",
@@ -57,7 +56,7 @@ const Default = StyleSheet.create({
     },
     ratsia: {
         justifyContent: "flex-end",
-        flex:0.25
+        flex:0.5
     },
     nappi:{
         alignItems: "center",
