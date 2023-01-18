@@ -38,24 +38,6 @@ export default function App() {
       if (result<0 || final<0) {
         setResult(0)
       }
-
-      if (result>0.51 && ratsia==false) {
-        setResultText("Ite kyllä lopettaisin jo.")
-      } else if (result<0.51 && result>0 && ratsia==false) {
-        setResultText("Pikku hiprakka on kyl ihan jees")
-      } else if (result==0 && ratsia==false) {
-        setResultText("Hyvä. Ei kannatakkaan juoda.")
-      }
-
-      if (result>1.2 && ratsia==true) {
-        setResultText("Törkeän rattijuopomuksen raja ylitetty. Sinua epäillään törkeästä rattijuopomuksesta, sekä liikenteen vaarantamisesta.")
-      } else if (result>0.50 && ratsia==true) {
-        setResultText("Putkaan ja kortti poies.")
-      } else if (result<0.51 && result>0 && ratsia==true) {
-        setResultText("Lukemaa oli, mutta alta rangaistavuuden.")
-      } else if (result==0 && ratsia==true) {
-        setResultText("Nollaa näyttää, jatka vaan.")
-      }
     }   
   }
 
@@ -133,9 +115,31 @@ export default function App() {
               {result.toFixed(3)} promillea
             </Text>
             }
-            <Text style={theme.result}>
-              {resultText}
-            </Text>
+            { (result>1.2 && ratsia==false) && 
+            <Text style={theme.result}>Kuoleman partaalla.</Text>
+            }
+            { (result>0.5 && result<1.2 && ratsia==false) && 
+            <Text style={theme.result}>Ite kyl lopettaisin.</Text>
+            }
+            { (result>0 && result<0.5 && ratsia==false) && 
+            <Text style={theme.result}>Pikku hiprakka on ihan jees.</Text>
+            }
+            { (result==0 && ratsia==false) && 
+            <Text style={theme.result}>Hyvä. Ei kannatakkaan ryypätä.</Text>
+            }
+
+            { (result>1.2 && ratsia==true) && 
+            <Text style={theme.result}>Törkeän rattijuopomuksen raja ylitetty. Sinua epäillään törkeästä rattijuopomuksesta, sekä liikenteen vaarantamisesta.</Text>
+            }
+            { (result>0.5 && result<1.2 && ratsia==true) && 
+            <Text style={theme.result}>Sakot, putkaan, ja kortti poies.</Text>
+            }
+            { (result>0 && result<0.5 && ratsia==true) && 
+            <Text style={theme.result}>Lukemaa oli, mutta alta rangaistavuuden.</Text>
+            }
+            { (result==0 && ratsia==true) && 
+            <Text style={theme.result}>Nollaa näyttää, jatka vaan.</Text>
+            }
           </View>
           <View style={theme.ratsia}>
           <Button title={buttonTitle} onPress={()=> setRatsia(!ratsia)} />
