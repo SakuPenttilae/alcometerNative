@@ -1,11 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Text, View, Button, TextInput, ScrollView, TouchableOpacity } from 'react-native';
 import { Default, Ratsia } from './styles/Styles';
 import NumericInput from 'react-native-numeric-input';
 import { RadioButton} from 'react-native-paper';
-
-
 
 export default function App() {
 
@@ -48,7 +45,7 @@ export default function App() {
 
   const buttons = ratsia ? "red" : "#b5e8db"
   const buttons2 = ratsia ? "blue" : "#b5e8db"
-  const textColor = ratsia ? "white" : "black"     
+  const flipColor = ratsia ? "white" : "black"     
   const theme = ratsia ? Ratsia : Default;
   const title = ratsia ? <Text>{lights} AJOIT RATSIAAN! {lights}</Text> : "Alkometri"
   const buttonTitle = ratsia ? "Tavallinen" : "Lähde autolla hakemaan lisää olutta"
@@ -75,9 +72,9 @@ export default function App() {
               minValue={0} 
               totalHeight={40} 
               totalWidth={240} 
-              iconStyle={{color: textColor}} 
-              borderColor={textColor} 
-              textColor={textColor} 
+              iconStyle={{color: flipColor}} 
+              borderColor={flipColor} 
+              textColor={flipColor} 
               rightButtonBackgroundColor={buttons2} 
               leftButtonBackgroundColor={buttons} 
               value={bottle} 
@@ -88,31 +85,29 @@ export default function App() {
               minValue={0} 
               totalHeight={40} 
               totalWidth={240} 
-              iconStyle={{color: textColor}} 
-              borderColor={textColor} 
-              textColor={textColor} 
+              iconStyle={{color: flipColor}} 
+              borderColor={flipColor} 
+              textColor={flipColor} 
               rightButtonBackgroundColor={buttons} 
               leftButtonBackgroundColor={buttons2} 
               value={hours} 
               onChange={v=>setHours(v)}
             />
-          </View>
-          <RadioButton.Group onValueChange={v => setGender(v)} value={gender}>
-            <View>
-              <Text style={theme.mustaValkoinen}>Mies</Text>
-              <RadioButton value={0.7} />
-            </View>
-            <View>
-              <Text style={theme.mustaValkoinen}>Nainen</Text>
-              <RadioButton value={0.6} />
-            </View>
-          </RadioButton.Group>
-          <View style={theme.results}>
-            <TouchableOpacity onPress={()=>calculate()}>
-              <View style={theme.nappi}>
-                <Text style={theme.calc}>Laske promillet</Text>
+            <RadioButton.Group onValueChange={v => setGender(v)} value={gender}>
+              <View style={theme.radios}>
+                <Text style={[theme.mustaValkoinen, {paddingTop:20}]}>Mies</Text>
+                <RadioButton value={0.7} />
               </View>
+              <View style={theme.radios}>
+                <Text style={theme.mustaValkoinen}>Nainen</Text>
+                <RadioButton value={0.6} />
+              </View>
+            </RadioButton.Group>
+            <TouchableOpacity onPress={()=>calculate()}  style={theme.nappi}>
+                <Text style={theme.nappiText}>Laske promillet</Text>
             </TouchableOpacity>
+          </View>
+          <View style={theme.results}>
             {(result>=0 && isRan) && 
             <Text style={theme.result}>
               {result.toFixed(3)} promillea

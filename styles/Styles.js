@@ -45,25 +45,30 @@ const Default = StyleSheet.create({
     result: {
         textAlign: "center",
         marginTop: 30,
-        fontSize: 20
+        fontSize: 20,
     },
-    calc: {
-        textAlign:"center",
-        borderWidth:1,
-        width: 240,
-        height: 40,
-        backgroundColor: "white"
+    nappiText: {
+        fontWeight: "bold"
     },
     ratsia: {
         justifyContent: "flex-end",
         flex:0.5
     },
     nappi:{
+        alignSelf: "center",
+        width: 240,
+        height: 40,
+        borderWidth:1,
+        backgroundColor: "white",
+        justifyContent: "center",
         alignItems: "center",
-        height: 40
+        marginTop: 10
     },
     mustaValkoinen: {
         color:"black"
+    },
+    radios: {
+       alignItems:"center"
     }
 
 });
@@ -83,7 +88,8 @@ const Ratsia = StyleSheet.create({
         color: "white"
     },
     input: {
-      ...Default.input
+      ...Default.input,
+      borderColor: "red"
     },
     red: {
        color:"red",
@@ -108,20 +114,21 @@ const Ratsia = StyleSheet.create({
         ...Default.result,
         color:"white"
     }, 
-    calc: {
+    nappiText: {
         ...Default.calc,
-        borderColor: "white",
-        color: "black"
     },
     ratsia: {
         ...Default.ratsia
     },
     nappi:{
-        alignItems: "center",
-        height: 40
+       ...Default.nappi,
+       borderColor: "blue",
     },
     mustaValkoinen: {
         color:"white"
+    },
+    radios: {
+        ...Default.radios
     }
 });
 
