@@ -1,8 +1,6 @@
 import { StyleSheet } from "react-native";
 import Constants from "expo-constants";
 
-
-
 const Default = StyleSheet.create({
     body: {
         flex: 1,
