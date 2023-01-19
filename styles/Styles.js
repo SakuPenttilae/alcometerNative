@@ -44,8 +44,14 @@ const Default = StyleSheet.create({
     },
     result: {
         textAlign: "center",
-        marginTop: 30,
+        paddingTop: 20,
         fontSize: 20,
+    },
+    resultText: {
+        textAlign: "center",
+        paddingTop: 20,
+        fontSize: 20,
+        paddingBottom: 20
     },
     nappiText: {
         fontWeight: "bold"
@@ -114,6 +120,13 @@ const Ratsia = StyleSheet.create({
         ...Default.result,
         color:"white"
     }, 
+    resultText: {
+        textAlign: "center",
+        paddingTop: 20,
+        fontSize: 20,
+        paddingBottom: 20,
+        color: "white"
+    },
     nappiText: {
         ...Default.nappiText,
     },
