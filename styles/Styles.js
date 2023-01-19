@@ -115,7 +115,7 @@ const Ratsia = StyleSheet.create({
         color:"white"
     }, 
     nappiText: {
-        ...Default.calc,
+        ...Default.nappiText,
     },
     ratsia: {
         ...Default.ratsia

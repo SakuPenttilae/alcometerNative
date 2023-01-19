@@ -45,7 +45,9 @@ export default function App() {
 
   const buttons = ratsia ? "red" : "#b5e8db"
   const buttons2 = ratsia ? "blue" : "#b5e8db"
-  const flipColor = ratsia ? "white" : "black"     
+  const flipColor = ratsia ? "white" : "black"   
+  const redBlack = ratsia ? "blue" : "black"
+  const redBlue = ratsia ? "red" : "black"  
   const theme = ratsia ? Ratsia : Default;
   const title = ratsia ? <Text>{lights} AJOIT RATSIAAN! {lights}</Text> : "Alkometri"
   const buttonTitle = ratsia ? "Tavallinen" : "Lähde autolla hakemaan lisää olutta"
@@ -96,11 +98,11 @@ export default function App() {
             <RadioButton.Group onValueChange={v => setGender(v)} value={gender}>
               <View style={theme.radios}>
                 <Text style={[theme.mustaValkoinen, {paddingTop:20}]}>Mies</Text>
-                <RadioButton value={0.7} />
+                <RadioButton uncheckedColor={redBlack} color={redBlue} value={0.7} />
               </View>
               <View style={theme.radios}>
                 <Text style={theme.mustaValkoinen}>Nainen</Text>
-                <RadioButton value={0.6} />
+                <RadioButton uncheckedColor={redBlack} color={redBlue} value={0.6} />
               </View>
             </RadioButton.Group>
             <TouchableOpacity onPress={()=>calculate()}  style={theme.nappi}>
