@@ -14,8 +14,8 @@ export default function App() {
   const [hours, setHours] = useState(0)
   const [weight, setWeight] = useState(0)
   const [result, setResult] = useState(0)
-  const [resultText, setResultText] = useState("")
   const [gender, setGender] = useState(0.7)
+  const [isRan, setRan] = useState(false)
 
   const litres = bottle * 0.33
   const promille = litres * 8 * 4.5
@@ -33,6 +33,9 @@ export default function App() {
     }
 
     if (weight>0 && gender>0) {
+
+      setRan(true)
+      
       setResult(final/ (weight*gender))
 
       if (result<0 || final<0) {
@@ -110,7 +113,7 @@ export default function App() {
                 <Text style={theme.calc}>Laske promillet</Text>
               </View>
             </TouchableOpacity>
-            {result>0 && 
+            {(result>=0 && isRan) && 
             <Text style={theme.result}>
               {result.toFixed(3)} promillea
             </Text>
@@ -124,7 +127,7 @@ export default function App() {
             { (result>0 && result<0.5 && ratsia==false) && 
             <Text style={theme.result}>Pikku hiprakka on ihan jees.</Text>
             }
-            { (result==0 && ratsia==false) && 
+            { (result==0 && ratsia==false && isRan) && 
             <Text style={theme.result}>Hyvä. Ei kannatakkaan ryypätä.</Text>
             }
 
@@ -137,7 +140,7 @@ export default function App() {
             { (result>0 && result<0.5 && ratsia==true) && 
             <Text style={theme.result}>Lukemaa oli, mutta alta rangaistavuuden.</Text>
             }
-            { (result==0 && ratsia==true) && 
+            { (result==0 && ratsia==true && isRan) && 
             <Text style={theme.result}>Nollaa näyttää, jatka vaan.</Text>
             }
           </View>
