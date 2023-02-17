@@ -118,7 +118,6 @@ export default function App() {
           </TouchableOpacity>
         </View>
         <View style={theme.results}>
-
           {(result==0 && isRan) && 
           <Text style={[theme.result, Colours.green]}>
             {toFixed(result,2)} promillea
