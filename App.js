@@ -141,7 +141,7 @@ export default function App() {
           <Text style={theme.resultText}>Ite kyl lopettaisin.</Text>
           }
           { (result>0 && result<0.5 && ratsia==false) && 
-          <Text style={theme.resultText}>Pikku hiprakka on ihan jees.</Text>
+          <Text style={theme.resultText}>Pikku hiprakka on vielä ihan ok.</Text>
           }
           { (result==0 && ratsia==false && isRan) && 
           <Text style={theme.resultText}>Hyvä. Ei kannatakkaan ryypätä.</Text>
