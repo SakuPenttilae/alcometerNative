@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Text, View, Button, TextInput, ScrollView, TouchableOpacity, Alert } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
 import { Default, Ratsia, Colours } from './styles/Styles';
 import NumericInput from 'react-native-numeric-input';
 import { RadioButton} from 'react-native-paper';
@@ -41,7 +40,14 @@ export default function App() {
       }
     }   
   }
+
+  /*Javascript .toFixed rounds up so I looked this up from stackoverflow*/
  
+  function toFixed(num, fixed) {
+    var re = new RegExp('^-?\\d+(?:\.\\d{0,' + (fixed || -1) + '})?');
+    return num.toString().match(re)[0];
+  }
+
   /*Changing colors, and some text depending on one condition*/ 
 
   const lights = <Text style={Colours.red}>*<Text style={Colours.blue}>*</Text></Text>  
@@ -115,22 +121,22 @@ export default function App() {
 
           {(result==0 && isRan) && 
           <Text style={[theme.result, Colours.green]}>
-            {result.toFixed(3)} promillea
+            {toFixed(result,2)} promillea
           </Text>
           }
           {(result>0 && isRan && result<0.5) && 
           <Text style={[theme.result, Colours.yellow]}>
-            {result.toFixed(3)} promillea
+            {toFixed(result,2)} promillea
           </Text>
           }
           {(result>=0.5 && isRan && result<1.2) && 
           <Text style={[theme.result, Colours.orange]}>
-            {result.toFixed(3)} promillea
+            {toFixed(result,2)} promillea
           </Text>
           }
           {(result>1.2 && isRan) && 
           <Text style={[theme.result, Colours.red]}>
-            {result.toFixed(3)} promillea
+            {toFixed(result,2)} promillea
           </Text>
           }
 
