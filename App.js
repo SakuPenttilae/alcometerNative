@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Text, View, Button, TextInput, ScrollView, TouchableOpacity, Alert } from 'react-native';
-import { Default, Ratsia } from './styles/Styles';
+import { AntDesign } from '@expo/vector-icons';
+import { Default, Ratsia, Colours } from './styles/Styles';
 import NumericInput from 'react-native-numeric-input';
 import { RadioButton} from 'react-native-paper';
 
@@ -43,7 +44,7 @@ export default function App() {
  
   /*Changing colors, and some text depending on one condition*/ 
 
-  const lights = <Text style={Ratsia.red}>*<Text style={Ratsia.blue}>*</Text></Text>  
+  const lights = <Text style={Colours.red}>*<Text style={Colours.blue}>*</Text></Text>  
   const buttons = ratsia ? "red" : "#b5e8db"
   const buttons2 = ratsia ? "blue" : "#b5e8db"
   const flipColor = ratsia ? "white" : "black"   
@@ -113,22 +114,22 @@ export default function App() {
         <View style={theme.results}>
 
           {(result==0 && isRan) && 
-          <Text style={[theme.result, {color:"green"}]}>
+          <Text style={[theme.result, Colours.green]}>
             {result.toFixed(3)} promillea
           </Text>
           }
           {(result>0 && isRan && result<0.5) && 
-          <Text style={[theme.result, {color:"yellow"}]}>
+          <Text style={[theme.result, Colours.yellow]}>
             {result.toFixed(3)} promillea
           </Text>
           }
           {(result>=0.5 && isRan && result<1.2) && 
-          <Text style={[theme.result, {color:"orange"}]}>
+          <Text style={[theme.result, Colours.orange]}>
             {result.toFixed(3)} promillea
           </Text>
           }
           {(result>1.2 && isRan) && 
-          <Text style={[theme.result, {color:"red"}]}>
+          <Text style={[theme.result, Colours.red]}>
             {result.toFixed(3)} promillea
           </Text>
           }
@@ -147,7 +148,7 @@ export default function App() {
           }
 
           { (result>1.2 && ratsia==true) && 
-          <Text style={theme.resultText}>Törkeän rattijuopomuksen raja ylitetty. Sinua epäillään törkeästä rattijuopomuksesta, sekä liikenteen vaarantamisesta.</Text>
+          <Text style={theme.resultText}>Törkeän rattijuopumuksen raja ylitetty. Sinua epäillään törkeästä rattijuopumuksesta, sekä liikenteen vaarantamisesta.</Text>
           }
           { (result>=0.5 && result<1.2 && ratsia==true) && 
           <Text style={theme.resultText}>Sakot, putkaan, ja kortti poies.</Text>
@@ -161,7 +162,7 @@ export default function App() {
         </View>
         <View style={theme.ratsia}>
           <Button title={buttonTitle} onPress={()=> setRatsia(!ratsia)} />
-        </View>
+        </View> 
       </View>
     </ScrollView>
   )

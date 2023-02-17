@@ -95,12 +95,6 @@ const Ratsia = StyleSheet.create({
       ...Default.input,
       borderColor: "red"
     },
-    red: {
-       color:"red",
-    },
-    blue: {
-        color:"blue"
-    },
     header: {
         ...Default.header,
     },
@@ -143,7 +137,25 @@ const Ratsia = StyleSheet.create({
     }
 });
 
-export {Ratsia, Default}
+const Colours = StyleSheet.create({
+    green: {
+        color: "green"
+    },
+    yellow: {
+        color: "yellow"
+    },
+    orange: {
+        color: "orange"
+    },
+    red: {
+        color: "red"
+    },
+    blue: {
+        color: "blue"
+    }
+})
+
+export {Ratsia, Default, Colours}
   
 
 
